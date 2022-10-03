@@ -7,6 +7,7 @@
  */
 
 import React from 'react';
+import { Provider } from 'react-redux';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './src/screens/StackScreen/HomeScreen';
@@ -15,6 +16,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import CarDataScreen from './src/screens/StackScreen/CarDataInformationScreen';
 import FirstTabScreen from './src/screens/TabScreens/FirstTabScreen';
 import SecondTabScreen from './src/screens/TabScreens/SecondTabScreen';
+import { store } from './src/store';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -30,7 +32,8 @@ function TabHome() {
 
 function App() {
   return (
-    <NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
       <Stack.Navigator initialRouteName={HomeScreen}>
         <Stack.Screen name="Home" component={HomeScreen}/>
         <Stack.Screen name="SecondStackPage" component={SecondStackScreen}/>
@@ -38,6 +41,7 @@ function App() {
         <Stack.Screen name="CarDataScreen" component={CarDataScreen} />
       </Stack.Navigator>
     </NavigationContainer>
+    </Provider>
   )
 }
 
