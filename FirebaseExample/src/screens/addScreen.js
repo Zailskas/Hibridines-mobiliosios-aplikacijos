@@ -11,7 +11,7 @@ function AddScreen() {
 
     const reference = firebase
         .app()
-        .database('https://fir-example-2f2cd-default-rtdb.europe-west1.firebasedatabase.app/')
+        .database('Realtime database reference url')
         .ref('/cars')
 
     handleSubmit = () => {
